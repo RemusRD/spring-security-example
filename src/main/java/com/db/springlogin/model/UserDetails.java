@@ -3,6 +3,7 @@ package com.db.springlogin.model;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -28,9 +29,6 @@ public class UserDetails implements org.springframework.security.core.userdetail
         this.authorities = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
-    }
-
-    public UserDetails(org.springframework.security.core.userdetails.User user) {
     }
 
     @Override
